@@ -21,20 +21,22 @@ gallery.insertAdjacentHTML('beforeend', galleryMarkUp);
 
 gallery.addEventListener('click', handleOpenModal);
 
+let galleryModal = new SimpleLightbox('.gallery a',
+        {
+            captions: true,
+            captionsData: 'alt',
+            captionDelay: 250,
+    });
+        
 function handleOpenModal(event) {
     event.preventDefault();
     if (event.target.nodeName !== "IMG") {
     return
   };
-     let gallery = new SimpleLightbox('.gallery a',
-        {
-            captions: true,
-            captionsData: 'alt',
-            captionDelay: 250,
-        });
+     
       
-gallery.on('close.simplelightbox', function () {
-gallery.close();
+galleryModal.on('close.simplelightbox', function () {
+galleryModal.close();
 });
 };
 
